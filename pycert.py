@@ -43,3 +43,7 @@ if __name__ == "__main__":
 
     cert = CertificateMaker()
     cert.write_string_to_pdf()
+
+    # TODO:
+    # iterate trough list of names from CSV
+    # send email to each participant
