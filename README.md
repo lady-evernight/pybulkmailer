@@ -1,6 +1,6 @@
 pycert
 ======
 
-an attempt to create a certificate maker tool for PyCon Philippines 2014
+Certificate maker for PyCon Philippines 2015
 
-Goal: A script that accepts a CSV file which contains a list of attendee names then outputs multiple PDFs (certificate of attendance)
+A script that accepts a CSV file which contains a list of attendee names and email then outputs multiple PDFs (certificate of attendance)
