@@ -49,5 +49,8 @@ if __name__ == "__main__":
         for row in reader:
             participant_name = row['name']
             participant_email = row['email']
+            print("Creating certificate for {}".format(participant_name))
             create_participant_pdf(participant_name)
             create_certificate_pdf(participant_name)
+
+        print("Done!")
