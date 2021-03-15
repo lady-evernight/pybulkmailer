@@ -2,7 +2,7 @@ import csv
 import os
 
 from reportlab.pdfgen.canvas import Canvas
-from reportlab.lib.units import inch, cm
+from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import LETTER, landscape
 
 from PyPDF2 import PdfFileWriter, PdfFileReader
@@ -31,7 +31,7 @@ def create_certificate_pdf(name, cert_template=cert_template):
     input_page.mergePage(watermark.getPage(0))
     output_file.addPage(input_page)
 
-    output_path = "output/" + name.strip().replace(" ","_").lower() + ".pdf"
+    output_path = "output/" + name.strip().replace(" ", "_").lower() + ".pdf"
 
     with open(output_path, "wb") as outputStream:
         output_file.write(outputStream)
