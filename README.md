@@ -3,9 +3,8 @@ pycert
 
 Certificate maker for PythonPH Events (pycon, public python training, etc.)
 
-A script that accepts a CSV file which contains a list of attendee names and email then outputs multiple PDFs (certificate of attendance)
+A script that accepts a CSV file which contains a list of attendee names and emails then outputs multiple PDFs (certificate of attendance)
 
-Code looks like crap atm but its working! :)
 - certificate maker
 - email sender with pdf attachment
 
