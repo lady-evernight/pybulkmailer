@@ -11,5 +11,5 @@ Code looks like crap atm but its working! :)
 
 
 References:
-https://realpython.com/creating-modifying-pdf/#setting-font-properties
-https://medium.com/@schedulepython/how-to-watermark-your-pdf-files-with-python-f193fb26656e
+- https://realpython.com/creating-modifying-pdf/#setting-font-properties
+- https://medium.com/@schedulepython/how-to-watermark-your-pdf-files-with-python-f193fb26656e
