@@ -10,7 +10,7 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 
 namelist_csv = os.path.abspath("data/nameslist.csv")
 cert_template = os.path.abspath("templates/certificate_template.pdf")
-participant_template = os.path.abspath("output/participant_template.pdf")
+participant_template = os.path.abspath("templates/participant_template.pdf")
 
 
 def create_participant_pdf(name):
