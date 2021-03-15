@@ -42,7 +42,7 @@ def send_email(name, email):
 
 
 if __name__ == "__main__":
-    # read the particpants csv
+    # read the participants csv
     # for each row, create a certificate
     with open(namelist_csv, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
