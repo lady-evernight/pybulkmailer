@@ -1,7 +1,7 @@
 pycert
 ======
 
-Certificate maker for PythonPH Events (pycon, public python training, etc.)
+Certificate maker for Certificate maker for PyCon PH and other PythonPH events
 
 A script that accepts a CSV file which contains a list of attendee names and emails then outputs multiple PDFs (certificate of attendance)
 
