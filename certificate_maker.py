@@ -98,8 +98,8 @@ def send_email(name, to_email, participant_cert):
     email_msg = form_email_message(
         name, to_email, subject, body, participant_cert)
     try:
-        with smtplib.SMTP_SSL(
-            'smtp.gmail.com', 465, context=context) as server:
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) \
+                as server:
             server.login(gmail_user, gmail_password)
             server.sendmail(gmail_user, to_email, email_msg)
             server.close()
