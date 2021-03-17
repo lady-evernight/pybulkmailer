@@ -93,8 +93,10 @@ def form_email_message(name, to_email, subject, body, participant_cert):
 def send_email(name, to_email, participant_cert):
     context = ssl.create_default_context()
     subject = "Your PythonPH Certificate"
-    body = "Hi {}, \
-    Here's your Intro to Python for Professionals Certificate".format(name)
+    body = (
+        "Hi {}, here's your Intro to Python for Professionals Certificate"
+        .format(name)
+    )
     email_msg = form_email_message(
         name, to_email, subject, body, participant_cert)
     try:
