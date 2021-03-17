@@ -1,5 +1,13 @@
 import csv
 import os
+import smtplib
+import json
+import ssl
+
+from email import encoders
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.units import inch
@@ -11,6 +19,19 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 namelist_csv = os.path.abspath("data/nameslist.csv")
 cert_template = os.path.abspath("templates/certificate_template.pdf")
 participant_template = os.path.abspath("templates/participant_template.pdf")
+
+settings_file = os.path.abspath("config/settings.json")
+
+
+def load_settings():
+    with open(settings_file) as f:
+        data = json.load(f)
+    return data
+
+
+settings = load_settings()
+gmail_user = settings['gmail_user']
+gmail_password = settings['gmail_password']
 
 
 def create_participant_pdf(name):
@@ -36,9 +57,55 @@ def create_certificate_pdf(name, cert_template=cert_template):
     with open(output_path, "wb") as outputStream:
         output_file.write(outputStream)
 
+    return output_path
 
-def send_email(name, email):
-    pass
+
+def form_email_message(name, to_email, subject, body, participant_cert):
+    from_email = gmail_user
+
+    email_msg = MIMEMultipart()
+    email_msg['Subject'] = subject
+    email_msg['From'] = from_email
+    email_msg['To'] = to_email
+    text_message = MIMEText(body, 'plain')
+    email_msg.attach(text_message)
+
+    with open(participant_cert, "rb") as attachment:
+        part = MIMEBase("application", "octet-stream")
+        part.set_payload(attachment.read())
+
+    encoders.encode_base64(part)
+
+    filename = os.path.basename(participant_cert)
+    print(filename)
+
+    part.add_header(
+        "Content-Disposition",
+        f"attachment; filename= {filename}",
+    )
+
+    # Add attachment to message and convert message to string
+    email_msg.attach(part)
+
+    return email_msg.as_string()
+
+
+def send_email(name, to_email, participant_cert):
+    context = ssl.create_default_context()
+    subject = "Your PythonPH Certificate"
+    body = "Hi {}, \
+    Here's your Intro to Python for Professionals Certificate".format(name)
+    email_msg = form_email_message(
+        name, to_email, subject, body, participant_cert)
+    try:
+        with smtplib.SMTP_SSL(
+            'smtp.gmail.com', 465, context=context) as server:
+            server.login(gmail_user, gmail_password)
+            server.sendmail(gmail_user, to_email, email_msg)
+            server.close()
+            print('Email sent!')
+    except Exception as e:
+        print('Something went wrong... {}'.format(e))
 
 
 if __name__ == "__main__":
@@ -51,6 +118,7 @@ if __name__ == "__main__":
             participant_email = row['email']
             print("Creating certificate for {}".format(participant_name))
             create_participant_pdf(participant_name)
-            create_certificate_pdf(participant_name)
+            participant_cert = create_certificate_pdf(participant_name)
+            send_email(participant_name, participant_email, participant_cert)
 
         print("Done!")
