@@ -19,7 +19,7 @@ Add a `settings.json` in `config/` folder with the following format:
 
 ## References:
 
-### Generate PDF
+### Generating PDF
 - https://realpython.com/creating-modifying-pdf/#setting-font-properties
 - https://medium.com/@schedulepython/how-to-watermark-your-pdf-files-with-python-f193fb26656e
 
