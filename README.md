@@ -24,7 +24,7 @@ Add a `settings.json` in `config/` folder with the following format:
 
 ## Running the Script
 ```
-python certificate_maker.py
+(pycert) $ python certificate_maker.py
 [2021-03-18 11:59:29,325] INFO certificate_maker 131 - Creating certificate for Micaela Reyes
 [2021-03-18 11:59:29,480] INFO certificate_maker 90 - micaela_reyes.pdf
 [2021-03-18 11:59:32,783] INFO certificate_maker 118 - Email sent!
