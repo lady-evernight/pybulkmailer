@@ -3,6 +3,7 @@ import os
 import smtplib
 import json
 import ssl
+import logging
 
 from email import encoders
 from email.mime.base import MIMEBase
@@ -14,6 +15,15 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import LETTER, landscape
 
 from PyPDF2 import PdfFileWriter, PdfFileReader
+
+
+# set the log level to info and specify the format we want to use
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(asctime)s] %(levelname)s %(module)s %(lineno)d - %(message)s',
+)
+# create a custom logger with the name __name__
+log = logging.getLogger(__name__)
 
 
 namelist_csv = os.path.abspath("data/nameslist.csv")
@@ -77,7 +87,7 @@ def form_email_message(name, to_email, subject, body, participant_cert):
     encoders.encode_base64(part)
 
     filename = os.path.basename(participant_cert)
-    print(filename)
+    log.info(filename)
 
     part.add_header(
         "Content-Disposition",
@@ -105,9 +115,9 @@ def send_email(name, to_email, participant_cert):
             server.login(gmail_user, gmail_password)
             server.sendmail(gmail_user, to_email, email_msg)
             server.close()
-            print('Email sent!')
+            log.info('Email sent!')
     except Exception as e:
-        print('Something went wrong... {}'.format(e))
+        log.error('Something went wrong... {}'.format(e))
 
 
 if __name__ == "__main__":
@@ -118,9 +128,9 @@ if __name__ == "__main__":
         for row in reader:
             participant_name = row['name']
             participant_email = row['email']
-            print("Creating certificate for {}".format(participant_name))
+            log.info("Creating certificate for {}".format(participant_name))
             create_participant_pdf(participant_name)
             participant_cert = create_certificate_pdf(participant_name)
             send_email(participant_name, participant_email, participant_cert)
 
-        print("Done!")
+        log.info("Done!")
