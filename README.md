@@ -8,6 +8,8 @@ Developed for PyCon PH 2015, this script automates the process of creating and d
 - Input: accepts a CSV file which contains a list of attendee names and emails
 - Output: generate multiple PDFs (certificate of attendance) and then sends the certificates via email to each paticipant.
 
+Main Parts:
+
 - certificate maker
 - email sender with pdf attachment
 
