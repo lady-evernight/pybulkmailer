@@ -1,7 +1,7 @@
 pycert
 ======
 
-Certificate maker for PyCon PH and other PythonPH events
+PyCert: Automated Certificate Generator and Emailer for PyCon PH
 
 A script that accepts a CSV file which contains a list of attendee names and emails, outputs multiple PDFs (certificate of attendance) and then sends the certificates via email to each paticipant
 
