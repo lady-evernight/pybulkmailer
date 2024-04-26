@@ -3,7 +3,7 @@ pycert
 
 PyCert: Automated Certificate Generator and Emailer for PyCon PH
 
-A script that accepts a CSV file which contains a list of attendee names and emails, outputs multiple PDFs (certificate of attendance) and then sends the certificates via email to each paticipant
+This script, developed for PyCon PH 2015, automates the creation and emailing of attendance certificates. It processes a CSV file with attendee names and emails, generates PDF certificates, and sends them to each participant. Due to its efficiency, it has been used annually to distribute certificates to hundreds of attendees.
 
 - certificate maker
 - email sender with pdf attachment
