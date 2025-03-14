@@ -130,7 +130,8 @@ if __name__ == "__main__":
             participant_email = row['email']
             log.info("Creating certificate for {}".format(participant_name))
             create_participant_pdf(participant_name)
-            participant_cert = create_certificate_pdf(participant_name)
+            cleaned_name = participant_name.replace("ñ", "n")
+            participant_cert = create_certificate_pdf(cleaned_name)
             send_email(participant_name, participant_email, participant_cert)
 
         log.info("Done!")
