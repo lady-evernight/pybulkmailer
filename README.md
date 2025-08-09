@@ -16,7 +16,7 @@ CC & BCC Support: Easily add recipients to the CC and BCC fields for every email
 
 Attachments: Option to attach files to your bulk emails.
 
-## Dev Environment Setup
+## 💻 Dev Environment Setup
 ```
 (bulkenv) $ pip install -r requirements.txt
 ```
