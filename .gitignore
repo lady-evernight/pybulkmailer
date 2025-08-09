@@ -3,4 +3,7 @@ output/
 *.pyc
 config/*.json
 parse_csv.py
-templates/participant_template.pdf
+bulkenv/
+data/realnameslist.csv
+real_bulk_mailer.py
+body.html
