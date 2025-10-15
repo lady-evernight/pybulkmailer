@@ -51,7 +51,7 @@ On the `send_email` function, add your subject title to the `subject` variable, 
 ```
 (pycert) $ python bulk_maker.py
 
-[2021-03-18 11:59:32,783] INFO certificate_maker 118 - Email sent! to Real Name
+[2021-03-18 11:59:32,783] INFO bulk_maker 118 - Email sent! to Real Name
 [2021-03-18 11:59:36,374] INFO bulk_maker 136 - Done!
 ```
 
