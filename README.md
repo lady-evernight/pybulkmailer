@@ -27,7 +27,7 @@ Add a `settings.json` in `config/` folder with the following format:
 {
     "gmail_user": "you@gmail.com",
     "gmail_password": "<your-app-password>",
-    "carbon-copy": "cc@gmail.com"
+    "carbon_copy": "cc@gmail.com"
 }
 ```
 
