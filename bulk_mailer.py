@@ -47,17 +47,82 @@ def form_email_message(name, to_email, subject, nickname, body_html):
     return email_msg
 
 def send_email(name, to_email, nickname):
-    subject = "Hello from PyLadies Manila!"
+    subject = """PythonAsia 2026 CFP now open, and we’d love to hear from you again!"""
     html_body = f"""
-        <html>
-            <body>
-                <p>Hi {nickname},</p>
-                <p>
-                    Cheers,<br>
-                    The PyLadies Manila Team
-                </p>
-            </body>
-        </html>
+    <html>
+    <body style="margin:0;padding:0;background:#f6f7fb;">
+    <div style="max-width:640px;margin:0 auto;padding:32px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#111;background:#ffffff;">
+        <p style="margin:0 0 16px;">Hi {name},</p>
+
+        <p style="margin:0 0 16px;">
+        We’re thrilled to share that the Call for Proposals for <strong>PythonAsia 2026</strong> (formerly PyCon APAC) is now open! 🎉
+        </p>
+
+        <p style="margin:0 0 16px;">
+        This year’s theme, <strong>“Kalinga,”</strong> draws from the Filipino word for care and compassion, the quiet strength that nurtures, heals, and allows us to grow. It celebrates the people and stories that make the Python community thrive.
+        </p>
+
+        <p style="margin:0 0 16px;">
+        As someone who has submitted or spoken at <strong>[Event]</strong>, you are already familiar with the power of sharing ideas on this platform. We’d love to see your proposal again, or your help in discovering new voices to feature at PythonAsia 2026.
+        </p>
+
+        <h2 style="margin:24px 0 12px;font-size:18px;">💡 Here’s how you can help:</h2>
+
+        <ol style="margin:0 0 16px 0;padding:0;list-style-type:none;">
+        <li style="margin:0 0 16px;">
+            <p style="margin:0 0 8px;"><strong>1. Submit a proposal</strong></p>
+            <p style="margin:0 0 12px;">Got something new to share? Submit your talk, workshop, or poster idea here:</p>
+            <p style="margin:0 0 12px;">
+            <a href="https://pretalx.com/python-asia-2026"
+                style="display:inline-block;text-decoration:none;padding:12px 18px;border-radius:6px;background:#2b6cb0;color:#ffffff;font-weight:600;">
+                👉 Submit via pretalx
+            </a>
+            </p>
+            <p style="margin:0 0 12px;">
+            or open: <a href="https://pretalx.com/python-asia-2026" style="color:#2b6cb0;">https://pretalx.com/python-asia-2026</a>
+            </p>
+        </li>
+
+        <li style="margin:0 0 16px;">
+            <p style="margin:0 0 8px;"><strong>2. Invite others to speak</strong></p>
+            <p style="margin:0 0 12px;">You probably know talented Pythonistas who would make great speakers. A personal message from you can make a huge difference.</p>
+            <p style="margin:0 0 8px;"><em>Here are quick templates you can use:</em></p>
+            <blockquote style="margin:0 0 12px;padding:8px 12px;border-left:4px solid #e2e8f0;background:#f8fafc;">
+            “Hi (name), I really enjoyed your talk on (topic). Have you thought about submitting it to PythonAsia 2026? Details:
+            <a href="https://pretalx.com/python-asia-2026" style="color:#2b6cb0;">https://pretalx.com/python-asia-2026</a>”
+            </blockquote>
+            <blockquote style="margin:0 0 12px;padding:8px 12px;border-left:4px solid #e2e8f0;background:#f8fafc;">
+            “Hi (name), your work on (project/topic) is inspiring. It would make a great talk for PythonAsia 2026! Submit here:
+            <a href="https://pretalx.com/python-asia-2026" style="color:#2b6cb0;">https://pretalx.com/python-asia-2026</a>”
+            </blockquote>
+        </li>
+
+        <li style="margin:0 0 16px;">
+            <p style="margin:0 0 8px;"><strong>3. Spread the word</strong></p>
+            <p style="margin:0;">Help us reach more people by sharing the CFP on social media.</p>
+        </li>
+        </ol>
+
+        <h3 style="margin:24px 0 8px;font-size:16px;">Need help?</h3>
+        <p style="margin:0 0 16px;">
+        Our program team is happy to answer questions or assist potential speakers with proposal ideas or guidance.<br />
+        📧 <a href="mailto:pyconprogram@python.ph" style="color:#2b6cb0;">pyconprogram@python.ph</a>
+        </p>
+
+        <p style="margin:0 0 16px;">
+        Together, we can create a conference that highlights the diversity, care, and creativity of the Python community across Asia.
+        </p>
+
+        <p style="margin:0 0 16px;">
+        Thank you for being part of our journey. We can’t wait to hear from you again!
+        </p>
+
+        <p style="margin:0 0 4px;">Best regards,</p>
+        <p style="margin:0;">The PythonAsia 2026 Program Team</p>
+    </div>
+    </body>
+    </html>
+
     """  # <-- use {nickname}, not {{nickname}}
 
     email_msg = form_email_message(name, to_email, subject, nickname, html_body)
