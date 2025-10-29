@@ -60,10 +60,14 @@ def form_email_message(name, to_email, subject, nickname, body_html):
 
 
 def send_email(name, to_email, nickname):
-    subject = "Email Subject Title"
+    subject = "Hello from PyLadies Manila!"
     html_body = f"""
         <html>
-        Body Here
+            <p>Hi {{nickname}},</p>
+            <p>
+                Cheers,<br>
+                The PyLadies Manila Team
+            </p>
         </html>
     """
     email_msg = form_email_message(

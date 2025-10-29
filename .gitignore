@@ -7,3 +7,4 @@ bulkenv/
 data/realnameslist.csv
 real_bulk_mailer.py
 body.html
+config/settings.json
